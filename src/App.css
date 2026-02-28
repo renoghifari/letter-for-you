@@ -1,0 +1,138 @@
+/* App-specific styles */
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure full viewport coverage */
+#root {
+  min-height: 100vh;
+}
+
+/* Custom background for the app */
+.app-background {
+  background-color: var(--bg-paper);
+  min-height: 100vh;
+}
+
+/* Envelope hover effect */
+.envelope-3d {
+  transition: transform 0.4s var(--ease-paper-rustle), box-shadow 0.4s ease;
+}
+
+.envelope-3d:hover:not(.open) {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Letter paper texture enhancement */
+.letter-paper {
+  position: relative;
+}
+
+.letter-paper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Enhanced visualizer bars */
+.visualizer-bar {
+  min-height: 8px;
+  border-radius: 2px 2px 0 0;
+}
+
+/* Secret message enhancement */
+.secret-message {
+  position: relative;
+  cursor: default;
+}
+
+.secret-message::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-burgundy), transparent);
+  transition: width 0.5s var(--ease-ink-flow);
+  transform: translateX(-50%);
+}
+
+.secret-message:hover::before {
+  width: 80%;
+}
+
+/* Music player tape effect */
+.tape-flutter {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Signature flourish animation trigger */
+.signature-flourish {
+  animation-play-state: paused;
+}
+
+.signature-flourish.animate {
+  animation-play-state: running;
+}
+
+/* Floating heart variations */
+.floating-heart:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.floating-heart:nth-child(3) {
+  animation-delay: 2s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .envelope-3d {
+    transform: scale(0.95);
+  }
+
+  .letter-paper {
+    padding: 1.5rem !important;
+  }
+
+  .font-handwriting {
+    font-size: 1.25rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (pointer: coarse) {
+  .envelope-3d:hover:not(.open) {
+    transform: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .secret-message {
+    opacity: 1 !important;
+  }
+}
+
+/* Print styles */
+@media print {
+
+  .paper-grain,
+  .scroll-progress,
+  .floating-heart,
+  .scroll-bounce {
+    display: none !important;
+  }
+
+  .letter-paper {
+    box-shadow: none !important;
+    border: 1px solid #ccc;
+  }
+}
