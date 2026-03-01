@@ -328,7 +328,7 @@ const HeroSection = ({ onEnvelopeOpen }: HeroSectionProps) => {
               <div className="w-10 sm:w-12 h-px my-2" style={{ backgroundColor: 'rgba(212,165,165,0.5)' }} />
               <p className="font-body italic text-xs sm:text-sm text-center" style={{ color: 'var(--text-charcoal)', opacity: 0.6 }}>
                 I made this for you. It might be too much, too soon but I'd rather be too much than too little when it comes to you.<br></br>
-                ^^croll down! promise it's worth the scroll ^^
+                scroll down! promise it's worth the scroll ^^
               </p>
             </div>
           </div>
